@@ -5,7 +5,9 @@ public class SmallSimple implements Quotation {
         return 1973;
     }
     public String text() {
-        return "Small Is Beautiful";
+        String p = "Small Is Beautiful -- the aim ought to be to obtain the maximum ";
+        String s = "amount of well being with the minimum amount of consumption.";
+        return p+s;
     }
     public String author() {
         return "Schumacher";
