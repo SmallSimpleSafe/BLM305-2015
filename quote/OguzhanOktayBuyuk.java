@@ -11,17 +11,17 @@ package quote;
  */
 public class OguzhanOktayBuyuk implements Quotation {
     public int year() {
-        return 1912;
+        return 1947;
     }
     public String text() {
-        String p = "Artificial Intelligence -- A computer would deserve to be called intelligent ";
-        String s = "if it could deceive a human into believing that it was human.";
+        String p = "Artificial Intelligence -- I believe that at the end of the century the use of words and general educated opinion will have altered so much ";
+        String s = " that one will be able to speak of machines thinking without expecting to be contradicted.";
         return p+s;
     }
     public String author() {
         return "Alan Turing";
     }
     public String reference() {
-        return "https://en.wikipedia.org/wiki/Alan_Turing";
+        return "http://www.hollywoodreporter.com/news/alan-turings-5-powerful-quotes-752669";
     }
 }
