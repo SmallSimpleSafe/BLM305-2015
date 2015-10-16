@@ -89,7 +89,7 @@ public class GUI implements ActionListener {
     boolean tryDir(String d) {
         ClassLoader L = getClass().getClassLoader();
         File p = new File(d, PACKAGE);
-        //System.out.println("Try "+p);
+        System.out.println("Try "+p.getAbsolutePath());
         if (!p.exists() || !p.isDirectory()) return false;
         for (File f : p.listFiles()) {
             String s = f.getName();
