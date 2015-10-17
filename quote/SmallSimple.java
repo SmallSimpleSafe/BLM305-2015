@@ -2,17 +2,17 @@ package quote;
 
 public class SmallSimple implements Quotation {
     public int year() {
-        return 1973;
+          return 1945;
     }
     public String text() {
-        String p = "Small Is Beautiful -- the aim ought to be to obtain the maximum ";
-        String s = "amount of well being with the minimum amount of consumption.";
+        String p = "And I can fight only for something that I love, love only what I respect, ";
+        String s = " and respect only what I at least know.” ";
         return p+s;
     }
     public String author() {
-        return "Schumacher";
+        return "Adolf Hitler";
     }
     public String reference() {
-        return "https://en.wikipedia.org/wiki/Small_Is_Beautiful";
+        return "http://www.goodreads.com/author/quotes/30691.Adolf_Hitler";
     }
 }
