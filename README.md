@@ -8,7 +8,7 @@ GUI is the main class that does three things:
 * selects an implementation and invokes related methods
 
 Your task is to make another Quotation class:
-* fork this depository to your user
+* fork this repository to your user
 * make a local copy and add your class
 * compile it and run GUI again
 * upload your java file and make a pull request
