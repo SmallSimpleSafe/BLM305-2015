@@ -5,14 +5,14 @@ public class EbrarYalcin implements Quotation {
           return 1945;
     }
     public String text() {
-        String p = "And I can fight only for something that I love, love only what I respect, ";
-        String s = " and respect only what I at least know.” ";
+        String p = "We are what we repeatedly do. ";
+        String s = " Excellence, then, is not an act, but a habit.” ";
         return p+s;
     }
     public String author() {
-        return "Adolf Hitler";
+        return "Aristotle";
     }
     public String reference() {
-        return "http://www.goodreads.com/author/quotes/30691.Adolf_Hitler";
+        return "http://www.brainyquote.com/quotes/quotes/a/aristotle145967.html";
     }
 }
