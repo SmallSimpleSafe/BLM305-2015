@@ -1,6 +1,6 @@
 package quote;
 
-public class erdmcagri implements Quotation {
+public class ErdemCagriGorucu implements Quotation {
     public int year() {
         return 2009;
     }
