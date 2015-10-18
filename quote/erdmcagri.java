@@ -2,11 +2,11 @@ package quote;
 
 public class erdmcagri implements Quotation {
     public int year() {
-        return null;
+        return 1749;
     }
     public String text() {
         String p = "I can promise to be candid.\n";
-        String s = ", but not to be impartial.";
+        String s = "But not to be impartial.";
         return p+s;
     }
     public String author() {
