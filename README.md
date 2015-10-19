@@ -13,4 +13,4 @@ Your task is to make another Quotation class:
 * compile it and run GUI again
 * upload your java file and make a pull request
 
-https://github.com/maeyler/Frameworks/blob/master/GitHub%20K%C4%B1lavuzu.md
+ [GitHub Kılavuzu](https://github.com/maeyler/Frameworks/blob/master/GitHub%20K%C4%B1lavuzu.md)
