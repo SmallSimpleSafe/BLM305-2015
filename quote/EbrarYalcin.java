@@ -2,11 +2,11 @@ package quote;
 
 public class EbrarYalcin implements Quotation {
     public int year() {
-          return 1945;
+          return 318 BC;
     }
     public String text() {
         String p = "We are what we repeatedly do. ";
-        String s = " Excellence, then, is not an act, but a habit.” ";
+        String s = " Excellence, then, is not an act, but a habit. ";
         return p+s;
     }
     public String author() {
