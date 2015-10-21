@@ -39,7 +39,7 @@ public class GUI implements ActionListener {
         pan.setBorder(new javax.swing.border.EmptyBorder(GAP, GAP, GAP, GAP));
         pan.setBackground(COLOR);
 
-        pan.add(topPanel(), "North");
+        pan.add(topPanel(), "South");
 
         txt.setFont(LARGE);
         txt.setEditable(false);
@@ -54,7 +54,7 @@ public class GUI implements ActionListener {
         ref.setEditable(false);
         ref.setColumns(35);
         ref.setDragEnabled(true);
-        pan.add(ref, "South");
+        pan.add(ref, "North");
 
         pan.setToolTipText("A project realized collectively by the class");
         menu.setToolTipText("Quotation classes");
