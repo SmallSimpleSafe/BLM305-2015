@@ -2,7 +2,7 @@ package quote;
 
 public class MELEK implements Quotation {
     public int year() {
-        return 1973;
+        return 1190;
     }
     public String text() {
         String p = "Gel Gel Ne Olursan Ol Yine Gel";
