@@ -1,18 +1,18 @@
 package quote;
 
-public class erdmcagri implements Quotation {
+public class Erdmcagri implements Quotation {
     public int year() {
-        return 2009;
+        return 1749;
     }
     public String text() {
-        String p = "A boy wakes up in a box with no memory of his past, other than that his name is Thomas.\n";
-        String s = "When the elevator doors open, he is pulled into a glade by a group of teenage boys who also have no memories besides their name.";
+        String p = "I can promise to be candid.\n";
+        String s = "But not to be impartial.";
         return p+s;
     }
     public String author() {
-        return "James Dashner";
+        return "Goethe";
     }
     public String reference() {
-        return "https://en.wikipedia.org/wiki/The_Maze_Runner";
+        return "http://www.bartleby.com/345/authors/193.html";
     }
 }
