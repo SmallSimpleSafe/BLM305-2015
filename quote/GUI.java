@@ -1,6 +1,6 @@
 package quote;
 
-import java.util.HashMap;
+import java.util.*;
 import java.io.File;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,7 +9,7 @@ import javax.swing.*;
 public class GUI implements ActionListener {
 
     Quotation msg;
-    final HashMap<String, Quotation> Q = new HashMap<>();
+    final Map<String, Quotation> Q = new TreeMap<>();
     final JFrame frm = new JFrame("Famous Quotations");
     final JLabel who = new JLabel("JLabel", SwingConstants.CENTER);
     final JTextArea txt = new JTextArea("JTextArea");
