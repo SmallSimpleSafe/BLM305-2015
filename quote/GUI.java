@@ -22,7 +22,7 @@ public class GUI implements ActionListener {
         RES_RATIO = RESOLUTION/96f;  //default resolution is 96
     static final int GAP = scaled(10); //uses RES_RATIO
     static final String PACKAGE = "quote";
-    static final Color COLOR = Color.cyan;
+    static final Color COLOR = Color.green;
     static final Font SMALL = new Font("SansSerif", 0, scaled(13));
     static final Font BOLD = new Font("SansSerif", 1, scaled(16));
     static final Font LARGE = new Font("Serif", 2, scaled(16));
