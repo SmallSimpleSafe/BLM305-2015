@@ -1,6 +1,6 @@
 package quote;
 
-import java.util.HashMap;
+import java.util.*;
 import java.io.File;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,7 +9,7 @@ import javax.swing.*;
 public class GUI implements ActionListener {
 
     Quotation msg;
-    final HashMap<String, Quotation> Q = new HashMap<>();
+    final Map<String, Quotation> Q = new TreeMap<>();
     final JFrame frm = new JFrame("Famous Quotations");
     final JLabel who = new JLabel("JLabel", SwingConstants.CENTER);
     final JTextArea txt = new JTextArea("JTextArea");
@@ -22,7 +22,7 @@ public class GUI implements ActionListener {
         RES_RATIO = RESOLUTION/96f;  //default resolution is 96
     static final int GAP = scaled(10); //uses RES_RATIO
     static final String PACKAGE = "quote";
-    static final Color COLOR = Color.cyan;
+    static final Color COLOR = Color.green;
     static final Font SMALL = new Font("SansSerif", 0, scaled(13));
     static final Font BOLD = new Font("SansSerif", 1, scaled(16));
     static final Font LARGE = new Font("Serif", 2, scaled(16));
@@ -39,7 +39,7 @@ public class GUI implements ActionListener {
         pan.setBorder(new javax.swing.border.EmptyBorder(GAP, GAP, GAP, GAP));
         pan.setBackground(COLOR);
 
-        pan.add(topPanel(), "North");
+        pan.add(topPanel(), "South");
 
         txt.setFont(LARGE);
         txt.setEditable(false);
@@ -54,7 +54,7 @@ public class GUI implements ActionListener {
         ref.setEditable(false);
         ref.setColumns(35);
         ref.setDragEnabled(true);
-        pan.add(ref, "South");
+        pan.add(ref, "North");
 
         pan.setToolTipText("A project realized collectively by the class");
         menu.setToolTipText("Quotation classes");
