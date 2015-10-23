@@ -1,12 +1,12 @@
 package text;
 
 import java.util.*;
-import java.io.File;
+import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class GUI implements ActionListener {
+public class Text implements ActionListener {
 
     Processor msg;
     final Map<String, Processor> Q = new TreeMap<>();
@@ -18,6 +18,8 @@ public class GUI implements ActionListener {
     final JButton file  = new JButton("File");
     final JButton paste = new JButton("Paste");
     final JComboBox<String> menu;
+    String input = "initial text";
+    String source = "";
 
     static final int 
         RESOLUTION = Toolkit.getDefaultToolkit().getScreenResolution(); 
@@ -26,33 +28,33 @@ public class GUI implements ActionListener {
     static final int GAP = scaled(10); //uses RES_RATIO
     static final String PACKAGE = "text";
     static final Color COLOR = Color.orange;
-    static final Font SMALL = new Font("SansSerif", 0, scaled(13));
-    static final Font BOLD = new Font("SansSerif", 1, scaled(16));
-    static final Font LARGE = new Font("Serif", 2, scaled(16));
-    static final Font DLOG = new Font("Dialog", 1, scaled(13));
+    static final Font NORM = new Font("SansSerif", 0, scaled(13));
+    static final Font BOLD = new Font("SansSerif", 1, scaled(15));
+    static final Font MONO = new Font("Monospaced", 0, scaled(12));
+    static final Font DLOG = new Font("Dialog", 1, scaled(12));
     
-    public GUI() {
+    public Text() {
         String[] keys = { "no Processor found" };
         if (tryDir(".") || tryDir("BLM305") || tryDir("CSE470")) 
             keys = Q.keySet().toArray(keys);
         menu = new JComboBox<String>(keys);
-        if (Q.size() > 0) setMessage(0);
+        if (Q.size() > 0) setItem(0);
         
         JPanel pan = new JPanel();
         pan.setLayout(new BorderLayout(GAP, GAP-4));
         pan.setBorder(new javax.swing.border.EmptyBorder(GAP, GAP, GAP, GAP));
         pan.setBackground(COLOR);
 
-        txt.setFont(LARGE);
+        txt.setFont(MONO);
         txt.setEditable(false);
-        txt.setRows(15);
-        txt.setColumns(45);
+        txt.setRows(20);
+        txt.setColumns(72);
         txt.setWrapStyleWord(true);
         txt.setLineWrap(true);
         txt.setDragEnabled(true);
         pan.add(new JScrollPane(txt), "Center");
 
-        ref.setFont(SMALL);
+        ref.setFont(NORM);
         ref.setEditable(false);
         ref.setColumns(35);
         ref.setDragEnabled(true);
@@ -62,14 +64,16 @@ public class GUI implements ActionListener {
 
         pan.setToolTipText("Another collective project");
         menu.setToolTipText("Processor classes");
+        file.setToolTipText("Select a file");
+        paste.setToolTipText("Use clipboard");
         who.setToolTipText("author()");
-        txt.setToolTipText("output text");
+        //txt.setToolTipText("output text");
         ref.setToolTipText("description()");
 
         frm.setContentPane(pan); 
         frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frm.setLocation(scaled(120), scaled(90));
-        frm.pack(); 
+        doPaste(); frm.pack(); //setSize() is called here
         frm.setVisible(true);
     }
     void addItem(JComponent a, Font f) {
@@ -115,30 +119,60 @@ public class GUI implements ActionListener {
         return Q.size() > 0;
     }
     public String toString() { return who.getText(); }
-    public String message() { return msg.description(); }
-    public void setMessage(Processor q, String s) {
+    public String message() { return msg.description(source); }
+    void setMessage(Processor q) {
         msg = q; 
         who.setText(q.author()); 
-        txt.setText(q.process(s)); 
-        ref.setText(q.description()); 
+        txt.setText(q.process(input)); 
+        ref.setText(q.description(source)); 
     }
-    public void setMessage(int i) {
+    public void setItem(int i) {
         String m = menu.getItemAt(i);
         System.out.println(m);
-        String s = "";
+        setMessage(Q.get(m));
+    }
+    void setItem() {
+        setItem(menu.getSelectedIndex());
+    }
+    public static String toString(File f) throws IOException {
+        InputStream in = new FileInputStream(f);
+        int n = in.available();
+        if (n == 0) throw new RuntimeException("no data");
+        byte[] b = new byte[n];
+        n = in.read(b);
+        return new String(b, 0, n);
+    }
+    public void doFile() {
+        FileDialog D = new FileDialog(frm);
+        D.setVisible(true);
+        File[] a = D.getFiles();
+        if (a == null) return;
         try {
-            s = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard()
+            input = toString(a[0]);
+            source = a[0].toString();
+            setItem();
+        } catch(Exception e) { 
+            System.out.println(e);
+        }
+    }
+    public void doPaste() {
+        try {
+            input = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard()
             .getData(java.awt.datatransfer.DataFlavor.stringFlavor).toString();
+            source = "system clipboard";
+            setItem();
         //UnsupportedFlavorException  IOException
         } catch(Exception e) { 
             System.out.println(e);
         }
-        setMessage(Q.get(m), s);
     }
     public void actionPerformed(ActionEvent e) {
-        setMessage(menu.getSelectedIndex());
+        if (e.getSource() == menu) setItem();
+        else if (e.getSource() == file) doFile();
+        else if (e.getSource() == paste) doPaste(); 
+        else System.out.println(e.getSource());
     }
 
     public static int scaled(int k) { return Math.round(k*RES_RATIO); }
-    public static void main(String[] args) { new GUI(); }
+    public static void main(String[] args) { new Text(); }
 }
