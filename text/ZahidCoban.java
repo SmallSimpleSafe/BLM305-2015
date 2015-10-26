@@ -1,21 +1,28 @@
 package text;
-
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ZahidCoban implements Processor {
 
     public String process(String input) {
-        String[] kelimeler = input.split("\\p{Space}|\\p{Punct}");
-        Set<String> agac = new TreeSet<>();
-        for (String s : kelimeler) {
-            agac.add(s);
+    
+        String kelimeler[]=input.split(" ");
+        
+        List<String> hexkelimeler=new ArrayList<>();
+        
+        for (int i = 0; i < kelimeler.length; i++) {
+            for (int j = 0; j < kelimeler[i].length(); j++) {
+                hexkelimeler.add(Integer.toHexString(kelimeler[i].charAt(j)));
+            }
+            hexkelimeler.add("   "); //to seperate words
         }
-        return agac.toString();
+        
+        return hexkelimeler.toString();
+        
     }
 
     public String description(String source) {
-        return " alphabetic order of: " + source;
+        return " all letters have been converted to hex values in "+ source;
     }
 
     public String author() {
