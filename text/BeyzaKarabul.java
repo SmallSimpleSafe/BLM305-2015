@@ -7,15 +7,15 @@ import java.util.*;
 public class BeyzaKarabul implements Processor {
     @Override
     public String process(String input) {
-        byte[] byteArray = input.getBytes();
+        char[] byteArray = input.toCharArray();
         ArrayList array = new ArrayList();
-        for (byte s : byteArray) array.add(s);
+        for (char s : byteArray) array.add(s);
         return array.toString();
         
     }
     @Override
     public String description(String source) {
-        return source+" converted to byte array";
+        return source+" converted to char array";
     }
     @Override
     public String author() {
