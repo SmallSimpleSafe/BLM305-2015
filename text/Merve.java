@@ -1,18 +1,19 @@
+
 package text;
 
 import java.util.*;
 
 public class Merve implements Processor {
     public String process(String input) {
-     String[] words = input.split(" ");
-        for (int i = words.length-1; i >= 0; i--) {
-           System.out.println(words.charAt(i));
-        }
-        Set<String> reversewords = new TreeSet<>();
-        for (String a:words){
-        reversewords.add(a);
-        }
-        return reversewords.toString();
+       String[] words = input.split(" ");
+        
+        List<String> reversewords = Arrays.asList(words);
+        Collections.reverse(reversewords);
+        words =(String[]).reversewords.toArray();
+
+       for (int i=0; i<words.length;i++){
+	System.out.println(words[i]);
+}
     }
     public String description(String source) {
         return source + "reverse the words and ordered.";
