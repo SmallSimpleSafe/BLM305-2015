@@ -4,17 +4,20 @@ import java.util.*;
 
 public class DilaraAri implements Processor {
     public String process(String input) {
-        String myString = input.substring(3, input.length());
-        char [] array = myString.toCharArray();
-        List<Character> list = new ArrayList<>();
-        for(char c : array)
-        {
-           list.add(c);
+    
+        String vowels = "aeıioöuü";
+        
+        List<String> list = new ArrayList<>();
+        
+        for (int i = 0; i < input.length(); i++) {
+            if (vowels.indexOf(input.charAt(i)) >= 0) {
+                list.add(input.charAt(i)+"");
+            }
         }
         return list.toString();
     }
     public String description(String source) {
-        return source+" returns the characters between the starting and ending index as a String";
+        return "Find vowels in "+source;
     }
     public String author() {
         return "A Dilara Ari";
