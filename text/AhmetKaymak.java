@@ -30,7 +30,7 @@ public class AhmetKaymak implements Processor {
         for (int i = 0; i < input.length() - 1; i++) {
             cyrptedText = cyrptedText + shiftTable.get(String.valueOf(input.charAt(i)));
         }
-        System.out.println(cyrptedText);
+        return cyrptedText;
 
     }
 
