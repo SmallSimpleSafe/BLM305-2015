@@ -1,6 +1,6 @@
 package quote;
 
-public class DilaraArı implements Quotation {
+public class Dilara2 implements Quotation {
     public int year() {
         return 1980;
     }
