@@ -1,11 +1,11 @@
 package quote;
 
-public class Sema implements Quotation {
+public class SemaCakmak implements Quotation {
     public int year() {
         return 1564;
     }
     public String text() {
-        String p = "what is done cannot be undone ";
+        String p = "What's done cannot be undone.";
         return p;
     }
     public String author() {
