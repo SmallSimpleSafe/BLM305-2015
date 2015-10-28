@@ -1,9 +1,11 @@
 package text;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-class EdaGitHub implements Processor {
-
+class EdaGitHub implements Processor{
+    
+    @Override
     public String process(String input) {
         char[] harf = input.toLowerCase().toCharArray();
         List<Character> harfler = new ArrayList<>();
@@ -13,27 +15,27 @@ class EdaGitHub implements Processor {
         }
         
         for(int i=0; i<harfler.size(); i++){
-            if(harfler.get(i).equals('ı')){
+            if(harfler.get(i) == 305){
                 harfler.set(i, 'i');
             }
             
-            else if(harfler.get(i).equals('ö')){
+            else if(harfler.get(i) == 246){
                 harfler.set(i,'o');
             }
             
-            else if(harfler.get(i).equals('ü')){
+            else if(harfler.get(i) == 252){
                 harfler.set(i,'u');
             }
             
-            else if(harfler.get(i).equals('ç')){
+            else if(harfler.get(i) == 231){
                 harfler.set(i,'c');
             }
             
-            else if(harfler.get(i).equals('ğ')){
+            else if(harfler.get(i) == 287){
                 harfler.set(i,'g');
             }
             
-            else if(harfler.get(i).equals('ş')){
+            else if(harfler.get(i) == 351){
                 harfler.set(i,'s');
             }
             
@@ -44,19 +46,19 @@ class EdaGitHub implements Processor {
         
         for (int i = 0; i < again.length; i++) {
             again[i] = harfler.get(i);
-            System.out.println(again[i]);
         }
         String engString = new String(again);
-        System.out.println(engString);
         return engString;
     }
-    
+
+    @Override
     public String description(String source) {
         return "Converted Turkish letters to English";
     }
 
+    @Override
     public String author() {
         return "Edanur Gür";
-    
     }
+    
 }
