@@ -2,7 +2,7 @@ package text;
 
 import java.util.*;
 
-public class AhmetKaymak implements Processor {
+public class ahmetkaymak implements Processor {
 
     @Override
     public String process(String input) {
