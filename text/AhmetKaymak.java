@@ -2,14 +2,15 @@ package text;
 
 import java.util.*;
 
-public class ahmetkaymak implements Processor {
+public class AhmetKaymak implements Processor {
 
     @Override
     public String process(String input) {
         String cyrptedText = "";
         Hashtable<String, String> shiftTable = new Hashtable<>();
         String alphabet = "abcdefghijklmnopqrstuwxvyzABCDEFGHIJKLMNOPQRSTUWXVYZ";
-        int shiftLength = Integer.parseInt(input.substring(input.length() - 1, input.length()));
+        int shiftLength = 5;
+        //Integer.parseInt(input.substring(input.length() - 1, input.length()));
         for (int i = 0; i < alphabet.length(); i++) {
             char c = (char) (alphabet.charAt(i));
             if (c >= 'A' && c <= 'Z') {
