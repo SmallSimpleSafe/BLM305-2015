@@ -7,9 +7,9 @@ import java.util.*;
 public class BeyzaKarabul implements Processor {
     @Override
     public String process(String input) {
-        char[] byteArray = input.toCharArray();
+        char[] charArray = input.toCharArray();
         ArrayList array = new ArrayList();
-        for (char s : byteArray) array.add(s);
+        for (char s : charArray) array.add(s);
         return array.toString();
         
     }
