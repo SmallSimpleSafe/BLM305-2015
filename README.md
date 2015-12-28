@@ -13,4 +13,12 @@ Your task is to make another Quotation class:
 * compile it and run GUI again
 * upload your java file and make a pull request
 
-https://github.com/maeyler/Frameworks/blob/master/GitHub%20K%C4%B1lavuzu.md
+Two bat files are added for synchronizing your repository:
+* sync: pull from your fork and push local changes to the fork
+* update: pull from the upstream and push to your fork
+
+When you update using the desktop interface, you end up with an undesirable merge-commit
+
+Try update.bat instead -- If that doesn't work, you have probably modified someone else's files
+
+[GitHub Kılavuzu](https://github.com/maeyler/Frameworks/blob/master/GitHub%20K%C4%B1lavuzu.md)

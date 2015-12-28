@@ -2,7 +2,7 @@ package quote;
 
 public class EbrarYalcin implements Quotation {
     public int year() {
-          return 318 BC;
+          return -318;
     }
     public String text() {
         String p = "We are what we repeatedly do. ";
